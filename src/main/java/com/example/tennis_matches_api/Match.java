@@ -36,8 +36,23 @@ public class Match {
 
     public String getWinner() { return this.winner; }
 
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setSide1(String side1) {
+        this.side1 = side1;
+    }
+
+    public void setSide2(String side2) {
+        this.side1 = side2;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public void setWinner(String winner) {
+        this.winner = winner;
     }
 }
