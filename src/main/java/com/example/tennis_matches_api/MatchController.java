@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class MatchController {
     private final MatchRepository repository;
@@ -14,7 +16,7 @@ public class MatchController {
     }
 
     @GetMapping("/matches")
-    public Iterable<Match> all() {
+    public List<Match> all() {
         return repository.findAll();
     }
 
