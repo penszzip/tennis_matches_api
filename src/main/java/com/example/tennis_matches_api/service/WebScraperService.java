@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -18,9 +20,14 @@ public class WebScraperService {
         this.repository = repository;
     }
     public void scrapeAndPopulate() {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate date = LocalDate.now().minusDays(1);
+        String formattedDate = date.format(formatter);
+
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://www.skysports.com/tennis/scores-schedule/06-02-2024");
+        driver.get("https://www.skysports.com/tennis/scores-schedule/" + formattedDate);
 
         List<WebElement> matches = driver.findElements(By.className("ui-tennis-match-score__table"));
 
