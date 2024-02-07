@@ -5,8 +5,10 @@ import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "matches")
 public class Match {
     private @Id @GeneratedValue Long id;
     private String side1;
